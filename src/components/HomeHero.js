@@ -5,6 +5,8 @@ import phoneMockup from "../assets/home/desktop/illustration-phone-mockup.svg";
 const HomeHero = () => {
   return (
     <HeroContainer>
+      <img src={phoneMockup} alt="phone mockup" className="phone-mockup" />
+
       <div className="left-side">
         <h1>Start building with our APIs for absolutely free.</h1>
         <div className="email-opt-in">
@@ -17,23 +19,20 @@ const HomeHero = () => {
           Have any questions? <a href="#">Contact us</a>{" "}
         </p>
       </div>
-
-      <img src={phoneMockup} alt="phone mockup" className="phone-mockup" />
       <img src={circlePattern} alt="circlePattern" className="circle-pattern" />
     </HeroContainer>
   );
 };
 
 const HeroContainer = styled.div`
-  /* display: flex; */
-
+  padding-bottom: 10rem;
   .left-side {
     /* padding: 8rem 8rem 5rem 8rem; */
     margin: 8rem 0 5rem 8rem;
     width: 40%;
 
     h1 {
-      font-size: 4.5rem;
+      font-size: 5vw;
       font-weight: lighter;
       line-height: 100%;
       width: 100%;
@@ -41,8 +40,8 @@ const HeroContainer = styled.div`
 
     .email-opt-in {
       margin-top: 3rem;
-      width: 80%;
-      padding: 0.85rem 1.5rem;
+      width: 100%;
+      padding: 0.87rem 1.5rem;
       position: relative;
       background: #fff;
       border-radius: 2rem;
@@ -65,7 +64,7 @@ const HeroContainer = styled.div`
     }
 
     p {
-      margin: 1.2rem 0 0 1.5rem;
+      margin: 2rem 0 0 1.5rem;
       display: inline-block;
       font-size: 14px;
       font-weight: 600;
@@ -91,6 +90,94 @@ const HeroContainer = styled.div`
     top: -25%;
     right: -15%;
     z-index: -1;
+  }
+
+  @media (max-width: 1024px) {
+    .left-side {
+      h1 {
+        font-size: 6vw;
+      }
+    }
+
+    .phone-mockup {
+      right: -4%;
+    }
+  }
+
+  @media (max-width: 850px) {
+    .left-side {
+      .email-opt-in {
+        background: none;
+        border: none;
+        padding: none;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        input[type="email"] {
+          width: 100%;
+          background: #fff;
+          border-radius: 2rem;
+          box-shadow: 0 5px 25px -2px rgba(0, 0, 0, 0.1);
+          padding: 1rem 1.5rem;
+        }
+
+        .schedule-btn {
+          position: relative;
+          width: 100%;
+          text-align: center;
+          margin: 1rem 0;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .left-side {
+      padding: 0 1rem;
+      margin: -20vw auto 10rem auto;
+      width: 100%;
+
+      h1 {
+        font-size: 6vw;
+        text-align: center;
+      }
+
+      p {
+        display: block;
+        text-align: center;
+      }
+    }
+
+    .email-opt-in {
+      padding: 0;
+    }
+
+    .phone-mockup {
+      position: relative;
+      top: 0;
+      display: block;
+      transform: scale(0.8);
+      margin-top: -12vw;
+    }
+
+    .circle-pattern {
+      top: -30rem;
+      right: 0;
+      transform: scale(0.7);
+    }
+  }
+
+  @media (max-width: 425px) {
+    .circle-pattern {
+      top: -20rem;
+      right: -8rem;
+    }
   }
 `;
 

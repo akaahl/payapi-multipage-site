@@ -6,6 +6,12 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+    
+    html {
+        @media (max-width: 1024px) {
+            font-size: 80%;
+        }
+    }
 
     body {
         min-height: 100vh;
@@ -13,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Spartan', sans-serif;
         color: rgb(55, 84, 109);
         position: relative;
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
     }
 
     .schedule-btn {
@@ -36,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
-    h1 {
+    h1, h2 {
         font-family: 'DM Serif Display', sans-serif;
     }
 `;

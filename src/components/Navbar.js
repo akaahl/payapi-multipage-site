@@ -50,6 +50,20 @@ const NavContainer = styled.nav`
       }
     }
   }
+
+  @media (max-width: 800px) {
+    padding: 2rem;
+
+    .left-side {
+      ul {
+        display: none;
+      }
+    }
+
+    .schedule-btn {
+      display: none;
+    }
+  }
 `;
 
 export default Navbar;
