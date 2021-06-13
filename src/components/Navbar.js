@@ -1,14 +1,20 @@
 import React from "react";
 import Logo from "../assets/shared/desktop/logo.svg";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <NavContainer>
       <div className="left-side">
-        <img src={Logo} alt="logo img" />
+        <Link to="/" className="logo-home">
+          <img src={Logo} alt="logo img" className="logo" />
+        </Link>
+
         <ul>
-          <li>Pricing</li>
+          <Link to="/pricing">
+            <li>Pricing</li>
+          </Link>
           <li>About</li>
           <li>Contact</li>
         </ul>
@@ -31,7 +37,7 @@ const NavContainer = styled.nav`
   .left-side {
     display: flex;
 
-    img {
+    .logo-home {
       margin-right: 3rem;
       height: 100%;
       width: 100%;
@@ -41,6 +47,10 @@ const NavContainer = styled.nav`
       list-style: none;
       display: flex;
       align-items: center;
+
+      a {
+        text-decoration: none;
+      }
 
       li {
         margin: 0 1rem;
