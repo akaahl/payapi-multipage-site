@@ -11,12 +11,12 @@ const HomeHero = () => {
         <h1>Start building with our APIs for absolutely free.</h1>
         <div className="email-opt-in">
           <input type="email" name="email" placeholder="Enter email address" />
-          <a href="#" className="schedule-btn">
+          <a href="#1" className="schedule-btn">
             Schedule a demo
           </a>
         </div>
         <p>
-          Have any questions? <a href="#">Contact us</a>{" "}
+          Have any questions? <a href="#2">Contact us</a>{" "}
         </p>
       </div>
       <img src={circlePattern} alt="circlePattern" className="circle-pattern" />
@@ -81,13 +81,13 @@ const HeroContainer = styled.div`
   .phone-mockup {
     /* z-index: 100; */
     position: absolute;
-    top: 12%;
+    top: 3%;
     right: 8%;
   }
 
   .circle-pattern {
     position: absolute;
-    top: -25%;
+    top: -5%;
     right: -15%;
     z-index: -1;
   }
@@ -141,7 +141,7 @@ const HeroContainer = styled.div`
     .left-side {
       padding: 0 1rem;
       margin: -20vw auto 10rem auto;
-      width: 100%;
+      width: 90%;
 
       h1 {
         font-size: 6vw;

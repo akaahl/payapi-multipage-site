@@ -2,6 +2,7 @@ import React from "react";
 import GlobalStyle from "./globalStyle";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import FooterNav from "./components/FooterNav";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <GlobalStyle />
       <Navbar />
       <Home />
+      <FooterNav />
     </div>
   );
 }

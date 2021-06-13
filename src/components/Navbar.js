@@ -14,7 +14,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <a href="#" class="schedule-btn">
+      <a href="#1" className="schedule-btn">
         Schedule a demo
       </a>
     </NavContainer>
