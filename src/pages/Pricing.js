@@ -141,6 +141,7 @@ const StyledContainer = styled.main`
     position: absolute;
     top: -40%;
     right: -15%;
+    z-index: -1;
   }
 
   h1 {
@@ -179,8 +180,8 @@ const StyledContainer = styled.main`
       ul {
         list-style: none;
         margin-top: 3rem;
-        border-top: 1px solid rgb(55, 84, 109);
-        border-bottom: 1px solid rgb(55, 84, 109);
+        border-top: 1px solid rgba(55, 84, 109, 0.2);
+        border-bottom: 1px solid rgba(55, 84, 109, 0.2);
 
         li {
           margin: 1.5rem 0;

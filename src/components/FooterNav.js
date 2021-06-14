@@ -20,8 +20,13 @@ const FooterNav = () => {
           <li>
             <Link to="/pricing">Pricing</Link>
           </li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            {" "}
+            <Link to="/contact">Contact</Link>
+          </li>
         </ul>
       </div>
 
