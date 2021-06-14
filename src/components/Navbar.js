@@ -12,9 +12,10 @@ const Navbar = () => {
         </Link>
 
         <ul>
-          <Link to="/pricing">
-            <li>Pricing</li>
-          </Link>
+          <li>
+            <Link to="/pricing">Pricing</Link>
+          </li>
+
           <li>About</li>
           <li>Contact</li>
         </ul>
@@ -48,15 +49,15 @@ const NavContainer = styled.nav`
       display: flex;
       align-items: center;
 
-      a {
-        text-decoration: none;
-      }
-
       li {
         margin: 0 1rem;
-        font-size: 14px;
-        font-weight: 800;
-        color: rgba(55, 84, 109, 0.7);
+
+        a {
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 800;
+          color: rgba(55, 84, 109, 0.7);
+        }
       }
     }
   }

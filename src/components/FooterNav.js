@@ -4,6 +4,7 @@ import logo from "../assets/shared/desktop/logo--white.svg";
 import facebook from "../assets/shared/desktop/facebook.svg";
 import linkedin from "../assets/shared/desktop/linkedin.svg";
 import twitter from "../assets/shared/desktop/twitter.svg";
+import { Link } from "react-router-dom";
 
 const FooterNav = () => {
   return (
@@ -16,7 +17,9 @@ const FooterNav = () => {
       <div className="left-side">
         <img src={logo} alt="logo" />
         <ul>
-          <li>Pricing</li>
+          <li>
+            <Link to="/pricing">Pricing</Link>
+          </li>
           <li>About</li>
           <li>Contact</li>
         </ul>
@@ -61,9 +64,13 @@ const StyledNav = styled.nav`
 
       li {
         margin: 0 1rem;
-        font-size: 14px;
-        font-weight: 700;
-        color: rgba(255, 255, 255, 0.6);
+
+        a {
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 700;
+          color: rgba(255, 255, 255, 0.6);
+        }
       }
     }
   }
