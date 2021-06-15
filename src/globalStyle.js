@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Spartan', sans-serif;
         color: rgb(55, 84, 109);
         position: relative;
-        /* overflow-x: hidden; */
+        overflow-x: hidden;
     }
 
     .schedule-btn {
