@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import circlePattern from "../assets/shared/desktop/bg-pattern-circle.svg";
 import HP from "../assets/shared/desktop/hewlett-packard.svg";
@@ -18,6 +18,12 @@ const Contact = () => {
     message: "",
   });
 
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const companyRef = useRef();
+  const titleRef = useRef();
+  const messageRef = useRef();
+
   const handleChange = (e) => {
     setClientInfo({ ...clientInfo, [e.target.name]: e.target.value });
   };
@@ -26,6 +32,39 @@ const Contact = () => {
     !e.target.value
       ? e.target.classList.add("alert")
       : e.target.classList.remove("alert");
+
+  const handleEmail = (e) => {
+    const emailRegex =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    return !emailRegex.test(e.target.value.toLowerCase())
+      ? emailRef.current.classList.add("alert-email")
+      : emailRef.current.classList.remove("alert-email");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!clientInfo.name) {
+      nameRef.current.classList.add("alert");
+    }
+
+    if (!clientInfo.email) {
+      emailRef.current.classList.add("alert-email");
+    }
+
+    if (!clientInfo.company) {
+      companyRef.current.classList.add("alert");
+    }
+
+    if (!clientInfo.title) {
+      titleRef.current.classList.add("alert");
+    }
+
+    if (!clientInfo.message) {
+      messageRef.current.classList.add("alert");
+    }
+  };
 
   return (
     <StyledContainer>
@@ -37,8 +76,9 @@ const Contact = () => {
       <h1>Submit a help request and we'll get in touch shortly.</h1>
 
       <div className="container">
-        <form action="#">
+        <form action="#" onSubmit={handleSubmit}>
           <input
+            ref={nameRef}
             type="text"
             name="name"
             placeholder="Name"
@@ -48,18 +88,20 @@ const Contact = () => {
           />
           <div className="border-line"></div>
           <input
-            type="email"
+            ref={emailRef}
+            type="text"
             name="email"
             placeholder="Email Address"
             value={clientInfo.email}
             onChange={handleChange}
-            onBlur={handleClassList}
+            onBlur={handleEmail}
           />
           <div className="border-line"></div>
 
           <input
+            ref={companyRef}
             type="text"
-            name="company-name"
+            name="company"
             placeholder="Company Name"
             value={clientInfo.company}
             onChange={handleChange}
@@ -68,6 +110,7 @@ const Contact = () => {
           <div className="border-line"></div>
 
           <input
+            ref={titleRef}
             type="text"
             name="title"
             placeholder="Title"
@@ -78,9 +121,10 @@ const Contact = () => {
           <div className="border-line"></div>
 
           <textarea
+            ref={messageRef}
             name="message"
             id=""
-            cols="30"
+            cols="10"
             rows="10"
             placeholder="Message"
             value={clientInfo.message}
@@ -188,6 +232,23 @@ const StyledContainer = styled.main`
           display: block;
         }
 
+        &.alert-email {
+          border-bottom: 1px solid #b9416f;
+          color: #b9416f;
+
+          &::placeholder {
+            color: #b9416f;
+          }
+        }
+
+        &.alert-email + .border-line {
+          margin-bottom: 2rem;
+        }
+
+        &.alert-email + .border-line::after {
+          display: block;
+        }
+
         &:focus {
           outline: none;
         }
@@ -227,6 +288,18 @@ const StyledContainer = styled.main`
 
         &:before {
           content: "This field can't be empty";
+          display: none;
+          width: 400px;
+          height: 50px;
+          position: relative;
+          bottom: -10px;
+          left: 20px;
+          font-size: 10px;
+          color: #b9416f;
+        }
+
+        &:after {
+          content: "This is not a valid email address";
           display: none;
           width: 400px;
           height: 50px;
