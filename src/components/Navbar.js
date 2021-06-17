@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/shared/desktop/logo.svg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import menu from "../assets/shared/mobile/menu.svg";
+import closeMenu from "../assets/shared/mobile/close.svg";
 
-const Navbar = () => {
+const Navbar = ({ isOpen, setToggleOpen }) => {
   return (
-    <NavContainer>
+    <NavContainer initial={false} animate={isOpen ? "open" : "closed"}>
       <div className="left-side">
         <Link to="/" className="logo-home">
           <img src={Logo} alt="logo img" className="logo" />
@@ -24,16 +27,44 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-
       <a href="#1" className="schedule-btn">
         Schedule a demo
       </a>
+
+      {!isOpen ? (
+        <div
+          className="hamburger-menu"
+          onClick={() => {
+            setToggleOpen(true);
+            document.body.classList.add("mobile-open");
+          }}
+        >
+          <img src={menu} alt="hamburger menu" />
+        </div>
+      ) : (
+        ""
+      )}
+
+      {isOpen ? (
+        <div
+          className="close-menu"
+          onClick={() => {
+            setToggleOpen(false);
+            document.body.classList.remove("mobile-open");
+          }}
+        >
+          <img src={closeMenu} alt="close hamburger menu" />
+        </div>
+      ) : (
+        ""
+      )}
     </NavContainer>
   );
 };
 
 const NavContainer = styled.nav`
   width: 100%;
+  height: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,6 +97,43 @@ const NavContainer = styled.nav`
     }
   }
 
+  .hamburger-menu,
+  .close-menu {
+    display: none;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 50%;
+    /* background: #ffffff; */
+    height: 4.5rem;
+    width: 4.5rem;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+
+    img {
+      user-select: none;
+    }
+  }
+
+  .hamburger-menu {
+    &:hover {
+      background: #ffffff;
+      transition: background 0.3s ease-in-out;
+    }
+
+    /* &.hide {
+      opacity: 0;
+      transition: opacity 0.2s ease-in;
+    } */
+  }
+
+  .close-menu {
+    &:hover {
+      background: #b9416f;
+      transition: background 0.3s ease-in-out;
+    }
+  }
+
   @media (max-width: 800px) {
     padding: 2rem;
 
@@ -77,6 +145,14 @@ const NavContainer = styled.nav`
 
     .schedule-btn {
       display: none;
+    }
+
+    .hamburger-menu {
+      display: flex;
+    }
+
+    .close-menu {
+      display: flex;
     }
   }
 `;

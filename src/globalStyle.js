@@ -20,6 +20,10 @@ const GlobalStyle = createGlobalStyle`
         color: rgb(55, 84, 109);
         position: relative;
         overflow-x: hidden;
+
+        &.mobile-open {
+            overflow-y: hidden;
+        }
     }
 
     .schedule-btn {
