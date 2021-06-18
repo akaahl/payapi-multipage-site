@@ -8,7 +8,7 @@ import closeMenu from "../assets/shared/mobile/close.svg";
 
 const Navbar = ({ isOpen, setToggleOpen }) => {
   return (
-    <NavContainer initial={false} animate={isOpen ? "open" : "closed"}>
+    <NavContainer>
       <div className="left-side">
         <Link to="/" className="logo-home">
           <img src={Logo} alt="logo img" className="logo" />
@@ -48,9 +48,14 @@ const Navbar = ({ isOpen, setToggleOpen }) => {
       {isOpen ? (
         <div
           className="close-menu"
-          onClick={() => {
-            setToggleOpen(false);
-            document.body.classList.remove("mobile-open");
+          onClick={(e) => {
+            e.target.style.transform = "rotate(540deg)";
+            e.target.style.transition = "transform 0.8s ease-in-out";
+
+            setTimeout(() => {
+              setToggleOpen(false);
+              document.body.classList.remove("mobile-open");
+            }, 1000);
           }}
         >
           <img src={closeMenu} alt="close hamburger menu" />
@@ -132,6 +137,8 @@ const NavContainer = styled.nav`
       background: #b9416f;
       transition: background 0.3s ease-in-out;
     }
+
+    transition: transform 1s ease;
   }
 
   @media (max-width: 800px) {

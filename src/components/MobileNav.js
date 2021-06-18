@@ -47,10 +47,6 @@ const StyledNav = styled.nav`
     list-style: none;
     margin-top: 8rem;
     border-top: 1px solid rgb(55, 84, 109);
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; */
 
     li {
       display: block;
