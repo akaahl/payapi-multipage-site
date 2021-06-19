@@ -2,17 +2,16 @@ import React from "react";
 import HomeHero from "../components/HomeHero";
 import HomeContentOne from "../components/HomeContentOne";
 import HomeContentTwo from "../components/HomeContentTwo";
-import {AnimatePresence} from 'framer-motion'
+import { motion } from "framer-motion";
+import { fadeInLeft } from "../animation";
 
 const Home = () => {
   return (
-    <div>
-      <AnimatePresence>
-        <HomeHero />
-        <HomeContentOne />
-        <HomeContentTwo />
-      </AnimatePresence>
-    </div>
+    <>
+      <HomeHero />
+      <HomeContentOne />
+      <HomeContentTwo />
+    </>
   );
 };
 

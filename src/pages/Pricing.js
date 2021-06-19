@@ -2,14 +2,23 @@ import styled from "styled-components";
 import checkIcon from "../assets/shared/desktop/icon-check.svg";
 import circlePattern from "../assets/shared/desktop/bg-pattern-circle.svg";
 import { motion } from "framer-motion";
+import { fadeInLeft } from "../animation";
 
 const Pricing = () => {
   return (
-    <StyledContainer>
-      <img
+    <StyledContainer
+      variants={fadeInLeft}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <motion.img
         src={circlePattern}
         alt="circle pattern"
         className="circle-pattern"
+        initial={{ y: 400, opacity: 0 }}
+        animate={{ y: 0, opacity: 1, transition: { delay: 0.5 } }}
+        exit={{ opacity: 0 }}
       />
 
       <h1>Pricing</h1>
@@ -135,7 +144,7 @@ const Pricing = () => {
   );
 };
 
-const StyledContainer = styled.main`
+const StyledContainer = styled(motion.main)`
   padding: 2rem 8rem;
   overflow-x: hidden;
 

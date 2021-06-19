@@ -2,57 +2,52 @@ import styled from "styled-components";
 import circlePattern from "../assets/shared/desktop/bg-pattern-circle.svg";
 import phoneMockup from "../assets/home/desktop/illustration-phone-mockup.svg";
 import { motion } from "framer-motion";
-import { fadeInLeft } from "../animation";
+// import { fadeInLeft } from "../animation";
 
 const HomeHero = () => {
   return (
-    
-      <HeroContainer>
-        <motion.img
-          src={phoneMockup}
-          alt="phone mockup"
-          className="phone-mockup"
-          initial={{ opacity: 0, y: -200 }}
-          animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
-          exit={{ opacity: 0, y: 200 }}
-        />
+    <HeroContainer>
+      <motion.img
+        src={phoneMockup}
+        alt="phone mockup"
+        className="phone-mockup"
+        initial={{ opacity: 0, y: -200 }}
+        animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
+        // exit={{ opacity: 0, y: 200 }}
+      />
 
-        <motion.div
-          className="left-side"
-          variants={fadeInLeft}
-          initial="hidden"
-          animate="visible"
-        >
-          <h1>Start building with our APIs for absolutely free.</h1>
-          <div className="email-opt-in">
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter email address"
-            />
-            <a href="#1" className="schedule-btn">
-              Schedule a demo
-            </a>
-          </div>
-          <p>
-            Have any questions? <a href="#2">Contact us</a>{" "}
-          </p>
-        </motion.div>
-        <motion.img
-          src={circlePattern}
-          alt="circlePattern"
-          className="circle-pattern"
-          // initial={{ y: -950, x: 750, opacity: 0 }}
-          // animate={{
-          //   opacity: 1,
-          //   transition: {
-          //     delay: 0.8,
-          //   },
-          // }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 0.8 } }}
-        />
-      </HeroContainer>
+      <div
+        className="left-side"
+        // variants={fadeInLeft}
+        // initial="hidden"
+        // animate="visible"
+      >
+        <h1>Start building with our APIs for absolutely free.</h1>
+        <div className="email-opt-in">
+          <input type="email" name="email" placeholder="Enter email address" />
+          <a href="#1" className="schedule-btn">
+            Schedule a demo
+          </a>
+        </div>
+        <p>
+          Have any questions? <a href="#2">Contact us</a>{" "}
+        </p>
+      </div>
+      <motion.img
+        src={circlePattern}
+        alt="circlePattern"
+        className="circle-pattern"
+        // initial={{ y: -950, x: 750, opacity: 0 }}
+        // animate={{
+        //   opacity: 1,
+        //   transition: {
+        //     delay: 0.8,
+        //   },
+        // }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { delay: 0.8 } }}
+      />
+    </HeroContainer>
   );
 };
 

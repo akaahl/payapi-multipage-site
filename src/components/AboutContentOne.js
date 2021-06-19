@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import circlePattern from "../assets/shared/desktop/bg-pattern-circle.svg";
+import { motion } from "framer-motion";
 
 const AboutContentOne = () => {
   return (
@@ -13,7 +14,15 @@ const AboutContentOne = () => {
         We empower innovators by delivering access to the financial system.
       </h1>
 
-      <section className="container">
+      <motion.section
+        className="container"
+        initial={{ x: -300, opacity: 0 }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          transition: { duration: 0.4, type: "spring" },
+        }}
+      >
         <div className="text-content">
           <h3>Our Vision</h3>
           <p>
@@ -34,12 +43,13 @@ const AboutContentOne = () => {
             traditional financial institutions and developers.
           </p>
         </div>
-      </section>
+      </motion.section>
     </StyledContainer>
   );
 };
 
 const StyledContainer = styled.main`
+  /* margin-top: 8rem !important; */
   padding: 2rem 14rem;
   overflow-x: hidden;
 

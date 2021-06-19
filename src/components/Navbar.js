@@ -147,6 +147,10 @@ const NavContainer = styled.nav`
     transition: transform 1s ease;
   }
 
+  @media (max-width: 1024px) {
+    top: -100px;
+  }
+
   @media (max-width: 800px) {
     padding: 2rem;
 
