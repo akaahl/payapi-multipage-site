@@ -86,7 +86,7 @@ const Contact = () => {
             onChange={handleChange}
             onBlur={handleClassList}
           />
-          <div className="border-line"></div>
+          <div className="border-line name"></div>
           <input
             ref={emailRef}
             type="text"
@@ -96,7 +96,7 @@ const Contact = () => {
             onChange={handleChange}
             onBlur={handleEmail}
           />
-          <div className="border-line"></div>
+          <div className="border-line email"></div>
 
           <input
             ref={companyRef}
@@ -175,6 +175,7 @@ const Contact = () => {
 
 const StyledContainer = styled.main`
   padding: 2rem 8rem;
+  overflow-x: hidden;
 
   .circle-pattern {
     position: absolute;
@@ -271,6 +272,12 @@ const StyledContainer = styled.main`
         &:focus + .border-line {
           width: 100%;
           height: 1.5px;
+        }
+
+        &:focus + .name,
+        &:focus + .email {
+          height: 2px;
+          width: 100%;
         }
       }
 

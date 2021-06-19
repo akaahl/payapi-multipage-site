@@ -41,6 +41,7 @@ const AboutContentOne = () => {
 
 const StyledContainer = styled.main`
   padding: 2rem 14rem;
+  overflow-x: hidden;
 
   .circle-pattern {
     position: absolute;
@@ -83,6 +84,10 @@ const StyledContainer = styled.main`
 
   @media (max-width: 1024px) {
     padding: 2rem 8rem;
+
+    .circle-pattern {
+      right: 0%;
+    }
     h1 {
       width: 100%;
       text-align: center;

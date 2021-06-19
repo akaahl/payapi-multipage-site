@@ -2,13 +2,16 @@ import React from "react";
 import HomeHero from "../components/HomeHero";
 import HomeContentOne from "../components/HomeContentOne";
 import HomeContentTwo from "../components/HomeContentTwo";
+import {AnimatePresence} from 'framer-motion'
 
 const Home = () => {
   return (
     <div>
-      <HomeHero />
-      <HomeContentOne />
-      <HomeContentTwo />
+      <AnimatePresence>
+        <HomeHero />
+        <HomeContentOne />
+        <HomeContentTwo />
+      </AnimatePresence>
     </div>
   );
 };

@@ -7,6 +7,16 @@ import menu from "../assets/shared/mobile/menu.svg";
 import closeMenu from "../assets/shared/mobile/close.svg";
 
 const Navbar = ({ isOpen, setToggleOpen }) => {
+  const [rotate, setRotate] = useState(false);
+
+  const closeButtonVariants = {
+    active: {
+      rotate: 540,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  };
   return (
     <NavContainer>
       <div className="left-side">
@@ -46,20 +56,22 @@ const Navbar = ({ isOpen, setToggleOpen }) => {
       )}
 
       {isOpen ? (
-        <div
+        <motion.div
           className="close-menu"
-          onClick={(e) => {
-            e.target.style.transform = "rotate(540deg)";
-            e.target.style.transition = "transform 0.8s ease-in-out";
+          variants={closeButtonVariants}
+          animate={rotate ? "active" : ""}
+          onClick={() => {
+            setRotate(true);
 
             setTimeout(() => {
               setToggleOpen(false);
+              setRotate(false);
               document.body.classList.remove("mobile-open");
             }, 1000);
           }}
         >
           <img src={closeMenu} alt="close hamburger menu" />
-        </div>
+        </motion.div>
       ) : (
         ""
       )}
@@ -108,7 +120,6 @@ const NavContainer = styled.nav`
     cursor: pointer;
     padding: 1rem;
     border-radius: 50%;
-    /* background: #ffffff; */
     height: 4.5rem;
     width: 4.5rem;
     align-items: center;
@@ -125,11 +136,6 @@ const NavContainer = styled.nav`
       background: #ffffff;
       transition: background 0.3s ease-in-out;
     }
-
-    /* &.hide {
-      opacity: 0;
-      transition: opacity 0.2s ease-in;
-    } */
   }
 
   .close-menu {

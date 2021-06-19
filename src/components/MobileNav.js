@@ -1,18 +1,46 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
-const MobileNav = ({ isOpen, setToggleOpen }) => {
+const MobileNav = ({ setToggleOpen }) => {
   return (
-    <StyledNav className={isOpen ? "show" : ""}>
+    <StyledNav
+      animate={{ x: 0, transition: { ease: "anticipate", duration: 0.6 } }}
+      initial={{ x: "100%" }}
+      exit={{ x: "100%", transition: { duration: 0.4 } }}
+    >
       <ul>
-        <li>
-          <Link to="/pricing">Pricing</Link>
+        <li
+          onClick={() => {
+            setToggleOpen(false);
+            document.body.classList.remove("mobile-open");
+          }}
+        >
+          <Link
+            to="/pricing"
+            onClick={() => {
+              setToggleOpen(false);
+              document.body.classList.remove("mobile-open");
+            }}
+          >
+            Pricing
+          </Link>
         </li>
 
-        <li>
+        <li
+          onClick={() => {
+            setToggleOpen(false);
+            document.body.classList.remove("mobile-open");
+          }}
+        >
           <Link to="/about">About</Link>
         </li>
-        <li>
+        <li
+          onClick={() => {
+            setToggleOpen(false);
+            document.body.classList.remove("mobile-open");
+          }}
+        >
           <Link to="/contact">Contact</Link>
         </li>
         <li>
@@ -24,12 +52,12 @@ const MobileNav = ({ isOpen, setToggleOpen }) => {
     </StyledNav>
   );
 };
-const StyledNav = styled.nav`
+const StyledNav = styled(motion.nav)`
   height: 100vh;
   width: 80vw;
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
   z-index: 150;
   background: #1c2731;
   display: flex;

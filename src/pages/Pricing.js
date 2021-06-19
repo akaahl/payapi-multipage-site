@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import checkIcon from "../assets/shared/desktop/icon-check.svg";
 import circlePattern from "../assets/shared/desktop/bg-pattern-circle.svg";
+import { motion } from "framer-motion";
 
 const Pricing = () => {
   return (
@@ -136,6 +137,7 @@ const Pricing = () => {
 
 const StyledContainer = styled.main`
   padding: 2rem 8rem;
+  overflow-x: hidden;
 
   .circle-pattern {
     position: absolute;
@@ -270,7 +272,7 @@ const StyledContainer = styled.main`
   @media (max-width: 1024px) {
     .circle-pattern {
       top: -30%;
-      right: -30%;
+      right: 0;
     }
     .pricing-container {
       grid-template-columns: repeat(2, 1fr);
