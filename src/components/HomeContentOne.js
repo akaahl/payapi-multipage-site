@@ -6,32 +6,55 @@ import Microsoft from "../assets/shared/desktop/microsoft--white.svg";
 import Nvidia from "../assets/shared/desktop/nvidia--white.svg";
 import Oracle from "../assets/shared/desktop/oracle--white.svg";
 import Tesla from "../assets/shared/desktop/tesla--white.svg";
+import { motion } from "framer-motion";
+import { useScroll } from "./useScroll";
+import { slideFromLeft, slideFromRight } from "../animation";
 
 const HomeContentOne = () => {
+  const [element, controls] = useScroll();
+
   return (
     <StyledContainer>
       <div className="left-side">
         <img src={circlePattern} alt="circle pattern" />
-        <h2>Who we work with</h2>
-        <p>
+        <motion.h2
+          ref={element}
+          variants={slideFromLeft}
+          initial="hidden"
+          animate={controls}
+        >
+          Who we work with
+        </motion.h2>
+        <motion.p
+          ref={element}
+          variants={slideFromLeft}
+          initial="hidden"
+          animate={controls}
+        >
           Today, millions of people around the world have successfully connected
           their accounts to apps they love using our API. We provide developers
           with the tools they need to create easy and accessible experiences for
           their users.
-        </p>
-        <a href="#123" className="about-btn">
+        </motion.p>
+        <motion.a href="#123" className="about-btn">
           About Us
-        </a>
+        </motion.a>
       </div>
 
-      <div className="right-side">
+      <motion.div
+        className="right-side"
+        ref={element}
+        variants={slideFromRight}
+        initial="hidden"
+        animate={controls}
+      >
         <img src={Tesla} alt="Tesla icon" />
         <img src={Microsoft} alt="Microsoft icon" />
         <img src={HP} alt="HP icon" />
         <img src={Oracle} alt="Oracle icon" />
         <img src={Google} alt="Google icon" />
         <img src={Nvidia} alt="Nvidia icon" />
-      </div>
+      </motion.div>
     </StyledContainer>
   );
 };
@@ -85,7 +108,6 @@ const StyledContainer = styled.section`
   }
 
   .right-side {
-    /* margin-left: 15rem; */
     margin-right: 2rem;
     width: 50%;
     padding: 2rem;
@@ -93,8 +115,6 @@ const StyledContainer = styled.section`
     grid-column-gap: 3rem;
     grid-row-gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    /* align-content: center;
-    justify-content: center; */
 
     img {
       align-self: center;

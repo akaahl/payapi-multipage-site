@@ -2,7 +2,7 @@ import styled from "styled-components";
 import circlePattern from "../assets/shared/desktop/bg-pattern-circle.svg";
 import phoneMockup from "../assets/home/desktop/illustration-phone-mockup.svg";
 import { motion } from "framer-motion";
-// import { fadeInLeft } from "../animation";
+import { fadeInLeft } from "../animation";
 
 const HomeHero = () => {
   return (
@@ -13,14 +13,13 @@ const HomeHero = () => {
         className="phone-mockup"
         initial={{ opacity: 0, y: -200 }}
         animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
-        // exit={{ opacity: 0, y: 200 }}
       />
 
-      <div
+      <motion.div
         className="left-side"
-        // variants={fadeInLeft}
-        // initial="hidden"
-        // animate="visible"
+        variants={fadeInLeft}
+        initial="hidden"
+        animate="visible"
       >
         <h1>Start building with our APIs for absolutely free.</h1>
         <div className="email-opt-in">
@@ -32,18 +31,11 @@ const HomeHero = () => {
         <p>
           Have any questions? <a href="#2">Contact us</a>{" "}
         </p>
-      </div>
+      </motion.div>
       <motion.img
         src={circlePattern}
         alt="circlePattern"
         className="circle-pattern"
-        // initial={{ y: -950, x: 750, opacity: 0 }}
-        // animate={{
-        //   opacity: 1,
-        //   transition: {
-        //     delay: 0.8,
-        //   },
-        // }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 0.8 } }}
       />
@@ -54,7 +46,6 @@ const HomeHero = () => {
 const HeroContainer = styled.div`
   padding-bottom: 10rem;
   .left-side {
-    /* padding: 8rem 8rem 5rem 8rem; */
     margin: 8rem 0 5rem 8rem;
     width: 40%;
 
@@ -106,7 +97,6 @@ const HeroContainer = styled.div`
   }
 
   .phone-mockup {
-    /* z-index: 100; */
     position: absolute;
     top: 3%;
     right: 8%;
@@ -189,8 +179,7 @@ const HeroContainer = styled.div`
       position: relative;
       top: 0;
       display: block;
-      transform: scale(0.8);
-      /* transform: scale(0.7) !important; */
+      transform: scale(0.8) !important;
 
       margin-top: -12vw;
     }

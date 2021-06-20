@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import circlePattern from "../assets/shared/desktop/bg-pattern-circle.svg";
 import { motion } from "framer-motion";
+import { slideFromLeft, fadeIn } from "../animation";
 
 const AboutContentOne = () => {
   return (
@@ -10,18 +11,15 @@ const AboutContentOne = () => {
         alt="circle-pattern"
         className="circle-pattern"
       />
-      <h1>
+      <motion.h1 variants={slideFromLeft} initial="hidden" animate="visible">
         We empower innovators by delivering access to the financial system.
-      </h1>
+      </motion.h1>
 
       <motion.section
         className="container"
-        initial={{ x: -300, opacity: 0 }}
-        animate={{
-          x: 0,
-          opacity: 1,
-          transition: { duration: 0.4, type: "spring" },
-        }}
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
       >
         <div className="text-content">
           <h3>Our Vision</h3>
@@ -49,7 +47,6 @@ const AboutContentOne = () => {
 };
 
 const StyledContainer = styled.main`
-  /* margin-top: 8rem !important; */
   padding: 2rem 14rem;
   overflow-x: hidden;
 

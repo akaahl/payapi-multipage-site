@@ -2,29 +2,28 @@ import styled from "styled-components";
 import checkIcon from "../assets/shared/desktop/icon-check.svg";
 import circlePattern from "../assets/shared/desktop/bg-pattern-circle.svg";
 import { motion } from "framer-motion";
-import { fadeInLeft } from "../animation";
+import { staggerAnimation, verticalReveal } from "../animation";
 
 const Pricing = () => {
   return (
-    <StyledContainer
-      variants={fadeInLeft}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-    >
+    <StyledContainer>
       <motion.img
         src={circlePattern}
         alt="circle pattern"
         className="circle-pattern"
         initial={{ y: 400, opacity: 0 }}
-        animate={{ y: 0, opacity: 1, transition: { delay: 0.5 } }}
-        exit={{ opacity: 0 }}
+        animate={{ y: 0, opacity: 1, transition: { delay: 1 } }}
       />
 
       <h1>Pricing</h1>
 
-      <div className="pricing-container">
-        <section>
+      <motion.div
+        className="pricing-container"
+        variants={staggerAnimation}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.section variants={verticalReveal}>
           <h3>Free Plan</h3>
           <p>
             Build and test using our core set of products with up to 100 API
@@ -57,9 +56,9 @@ const Pricing = () => {
           </ul>
 
           <button type="button">Request Access</button>
-        </section>
+        </motion.section>
 
-        <section>
+        <motion.section variants={verticalReveal}>
           <h3>Basic Plan</h3>
           <p>
             Launch your projects with unlimited requests and no contractual
@@ -92,9 +91,9 @@ const Pricing = () => {
           </ul>
 
           <button type="button">Request Access</button>
-        </section>
+        </motion.section>
 
-        <section>
+        <motion.section variants={verticalReveal}>
           <h3>Premium Plan</h3>
           <p>
             Get tailored solutions, volume pricing, and dedicated support for
@@ -127,8 +126,8 @@ const Pricing = () => {
           </ul>
 
           <button type="button">Request Access</button>
-        </section>
-      </div>
+        </motion.section>
+      </motion.div>
 
       <div className="subscribe-section">
         <h2>Ready to start?</h2>
@@ -178,7 +177,6 @@ const StyledContainer = styled(motion.main)`
         font-size: 14px;
         font-weight: 600;
         opacity: 0.7;
-        /* width: 90%; */
       }
 
       h2 {

@@ -71,7 +71,6 @@ const StyledNav = styled(motion.nav)`
   ul {
     width: 90%;
     height: 40%;
-    /* background: #fff; */
     list-style: none;
     margin-top: 8rem;
     border-top: 1px solid rgb(55, 84, 109);

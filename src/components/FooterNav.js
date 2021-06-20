@@ -14,21 +14,55 @@ const FooterNav = () => {
         alt="circle pattern"
         className="circle-pattern"
       />
-      <div className="left-side">
-        <img src={logo} alt="logo" />
+      <nav className="left-side">
+        <Link to="/" className="logo-home">
+          <img
+            src={logo}
+            alt="logo img"
+            className="logo"
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                left: 0,
+              });
+            }}
+          />
+        </Link>
+
         <ul>
-          <li>
+          <li
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                left: 0,
+              });
+            }}
+          >
             <Link to="/pricing">Pricing</Link>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                left: 0,
+              });
+            }}
+          >
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                left: 0,
+              });
+            }}
+          >
             {" "}
             <Link to="/contact">Contact</Link>
           </li>
         </ul>
-      </div>
+      </nav>
 
       <div className="right-side">
         <img src={facebook} alt="facebook icon" />
@@ -39,7 +73,7 @@ const FooterNav = () => {
   );
 };
 
-const StyledNav = styled.nav`
+const StyledNav = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,6 +86,7 @@ const StyledNav = styled.nav`
     position: absolute;
     top: -140%;
     right: -30%;
+    z-index: 1;
   }
 
   .left-side {
@@ -69,6 +104,7 @@ const StyledNav = styled.nav`
 
       li {
         margin: 0 1rem;
+        z-index: 10;
 
         a {
           text-decoration: none;

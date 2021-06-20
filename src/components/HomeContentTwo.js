@@ -15,7 +15,7 @@ const HomeContentTwo = () => {
         className="circle-pattern"
       />
       <section className="first-section">
-        <img src={codeSample} alt="code sandobx" />
+        <img src={codeSample} alt="code sandbox" />
         <div className="text-content">
           <h2>Easy to implement</h2>
           <p>
@@ -145,9 +145,6 @@ const StyledContainer = styled.main`
     padding-left: 4rem;
 
     .icon-layout {
-      /* display: flex;
-      flex-direction: column; */
-
       h4,
       p {
         text-align: center;
@@ -239,12 +236,6 @@ const StyledContainer = styled.main`
         }
       }
     }
-
-    /* .first-section {
-      .text-content {
-        width: 90%;
-      }
-    } */
 
     .second-section {
       .text-content {

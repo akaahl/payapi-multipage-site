@@ -8,6 +8,8 @@ import Nvidia from "../assets/shared/desktop/nvidia.svg";
 import Oracle from "../assets/shared/desktop/oracle.svg";
 import Tesla from "../assets/shared/desktop/tesla.svg";
 import checkIcon from "../assets/shared/desktop/right.svg";
+import { motion } from "framer-motion";
+import { slideFromLeft, slideFromRight, verticalReveal } from "../animation";
 
 const Contact = () => {
   const [clientInfo, setClientInfo] = useState({
@@ -73,10 +75,19 @@ const Contact = () => {
         alt="circle-pattern"
         className="circle-pattern"
       />
-      <h1>Submit a help request and we'll get in touch shortly.</h1>
+      <motion.h1 variants={verticalReveal} initial="hidden" animate="visible">
+        Submit a help request and we'll get in touch shortly.
+      </motion.h1>
 
       <div className="container">
-        <form action="#" onSubmit={handleSubmit}>
+        <motion.form
+          action="#"
+          onSubmit={handleSubmit}
+          variants={slideFromLeft}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.7 }}
+        >
           <input
             ref={nameRef}
             type="text"
@@ -143,9 +154,15 @@ const Contact = () => {
           </div>
 
           <button>Submit</button>
-        </form>
+        </motion.form>
 
-        <div className="list-of-companies">
+        <motion.div
+          className="list-of-companies"
+          variants={slideFromRight}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.7 }}
+        >
           <h3>Join the thousand of innovators already building with us.</h3>
 
           <div className="image-container">
@@ -156,7 +173,7 @@ const Contact = () => {
             <img src={Google} alt="google" />
             <img src={Nvidia} alt="nvidia" />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="subscribe-section">
@@ -194,7 +211,6 @@ const StyledContainer = styled.main`
 
   .container {
     display: flex;
-    /* align-items: center; */
     justify-content: space-between;
     margin-top: 4rem;
 
